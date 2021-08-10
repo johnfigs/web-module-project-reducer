@@ -9,8 +9,8 @@ import CalcButton from './components/CalcButton';
 //import addOne action
 import { addOne } from './actions';
 
-//import applyNumber, changeOperation, clearDisplay action
-import { applyNumber, changeOperation, clearDisplay } from './actions'
+//import applyNumber, changeOperation, clearDisplay, memoryAdd, memoryRecall, memoryClear action
+import { applyNumber, changeOperation, clearDisplay, memoryAdd, memoryRecall, memoryClear } from './actions'
 
 //import changeOperation action
 //import { changeOperation } from './actions'
@@ -35,6 +35,18 @@ function App() {
     dispatch(clearDisplay());
   }
 
+  const memPlusClick = () => {
+    dispatch(memoryAdd())
+  }
+
+  const memRecallClick = () => {
+    dispatch(memoryRecall())
+  }
+
+  const memClear = () => {
+    dispatch(memoryClear())
+  }
+
   return (
     <div className="App">
       <nav className="navbar navbar-dark bg-dark">
@@ -52,9 +64,9 @@ function App() {
             </div>
             
             <div className="row">
-              <CalcButton value={"M+"}/>
-              <CalcButton value={"MR"}/>
-              <CalcButton value={"MC"}/>
+              <CalcButton value={"M+"} onClick={ memPlusClick } />
+              <CalcButton value={"MR"} onClick={ memRecallClick }/>
+              <CalcButton value={"MC"} onClick={ memClear }/>
             </div>
 
             <div className="row">
